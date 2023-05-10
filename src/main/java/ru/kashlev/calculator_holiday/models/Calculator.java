@@ -1,7 +1,6 @@
 package ru.kashlev.calculator_holiday.models;
 
 
-
 public class Calculator {
 
     private String operation;
