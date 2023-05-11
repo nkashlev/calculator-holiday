@@ -7,30 +7,28 @@
 </head>
 <body>
 
-<h1>Калькулятор отпускных</h1>
+<h1>Калькулятор отпускных 2023</h1>
 <form method="POST" action="#" th:action="@{/calculate}" th:object="${calculator}">
     <label>Зарплата</label>
     <input type="text" th:field="*{salary}"/>
     <div style="color: red" th:if="${#fields.hasErrors('salary')}" th:errors="*{salary}">salary error</div>
     <br/>
     <br/>
-    <label>Количество дней</label>
-    <input type="text" th:field="*{countDays}"/>
-    <div style="color: red" th:if="${#fields.hasErrors('countDays')}" th:errors="*{countDays}">countDays error</div>
-    <br/>
-    <br/>
     <label>Начало отпуска</label>
     <input type="text" th:field="*{start}"/>
+    <div style="color: red" th:if="${#fields.hasErrors('start')}" th:errors="*{start}">start error</div>
     <br/>
     <br/>
     <label>Конец отпуска</label>
     <input type="text" th:field="*{end}"/>
+    <div style="color: red" th:if="${#fields.hasErrors('end')}" th:errors="*{end}">end error</div>
     <p>
         <input type="submit" class="button" name="calculate" value="РАССЧИТАТЬ"/>
         <input type="submit" class="button" name="clear" value="C"/>
     </p>
+    <h1><p th:text="'Количество дней отпуска: ' + ${countDays}"/></h1>
 
-    <h1><p th:text="'Результат: ' + ${result}"/></h1>
+    <h1><p th:text="'Сумма отпускных: ' + ${result} + ' руб.'"/></h1>
 </form>
 
 

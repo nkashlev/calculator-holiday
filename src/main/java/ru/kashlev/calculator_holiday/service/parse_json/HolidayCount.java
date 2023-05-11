@@ -14,20 +14,20 @@ public class HolidayCount {
         return new Connect().getJson(URL_JSON).getDay();
     }
 
-    private int diffDays(LocalDate date1, LocalDate date2) {
-        return date2.getDayOfYear() - date1.getDayOfYear();
+    public int diffDays(LocalDate date1, LocalDate date2) {
+        return (date2.getDayOfYear() - date1.getDayOfYear() + 1);
     }
 
     private void stringToDate() {
         listDate().stream().forEach(x -> dateHashMap.put(LocalDate.parse(x.get(0), DateTimeFormatter.ofPattern("d.M.yyyy")), x.get(1)));
     }
 
-    public int countDays(String startOfVacationString, String endOfVacationString) {
+    public int countDays(LocalDate startOfVacationDate, LocalDate endOfVacationDate) {
         stringToDate();
         int count = 0;
-        LocalDate startOfVacationDate = LocalDate.parse(startOfVacationString, DateTimeFormatter.ofPattern("d.M.yyyy"));
-        LocalDate endOfVacationDate = LocalDate.parse(endOfVacationString, DateTimeFormatter.ofPattern("d.M.yyyy"));
-        for (int i = 0; i < diffDays(startOfVacationDate, endOfVacationDate); i++) {
+//        LocalDate startOfVacationDate = LocalDate.parse(startOfVacationString, DateTimeFormatter.ofPattern("d.M.yyyy"));
+//        LocalDate endOfVacationDate = LocalDate.parse(endOfVacationString, DateTimeFormatter.ofPattern("d.M.yyyy"));
+        for (int i = 0; i < diffDays(startOfVacationDate, endOfVacationDate) - 1; i++) {
             if (dateHashMap.get(startOfVacationDate.plusDays(i)) != null) {
                 if (dateHashMap.get(startOfVacationDate.plusDays(i)).equals("holiday")) {
                     count++;
