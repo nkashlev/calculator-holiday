@@ -5,6 +5,8 @@ import ru.kashlev.calculator_holiday.models.Calculator;
 import ru.kashlev.calculator_holiday.service.parse_json.HolidayCount;
 
 import java.text.DecimalFormat;
+import java.time.LocalDate;
+import java.time.Year;
 
 @Service
 public class CalculateOperation {
@@ -26,6 +28,8 @@ public class CalculateOperation {
     public Calculator clear(Calculator model) {
         model.setSalary(0);
         model.setCountDays(0);
+        model.setStart(LocalDate.of(2023, 1, 1));
+        model.setEnd(LocalDate.of(2023, 12, 31));
         return model;
     }
 }
