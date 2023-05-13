@@ -10,13 +10,7 @@ import java.text.DecimalFormat;
 public class CalculateOperation {
     HolidayCount holidayCount = new HolidayCount();
 
-public String calculate(Calculator calculator) {
-//        if (calculator.getSalary() < 0) {
-//            throw new RuntimeException("Salary should be greater than 0");
-//        }
-//        if (calculator.getEnd().isBefore(calculator.getStart())) {
-//            throw new RuntimeException("Vacation start date cannot be greater than vacation end date");
-//        }
+    public String calculate(Calculator calculator) {
         double value = calculator.getSalary() / calculator.getAverageMonthlyNumberOfDaysInYear() *
                 (holidayCount.diffDays(calculator.getStart(), calculator.getEnd()) - holidayCount.countDays(calculator.getStart(), calculator.getEnd()));
         DecimalFormat decimalFormat = new DecimalFormat("#.##");
