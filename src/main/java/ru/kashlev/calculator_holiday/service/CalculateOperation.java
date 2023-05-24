@@ -6,7 +6,6 @@ import ru.kashlev.calculator_holiday.service.parse_json.HolidayCount;
 
 import java.text.DecimalFormat;
 import java.time.LocalDate;
-import java.time.Year;
 
 @Service
 public class CalculateOperation {
@@ -17,7 +16,6 @@ public class CalculateOperation {
                 (holidayCount.diffDays(calculator.getStart(), calculator.getEnd()) - holidayCount.countDays(calculator.getStart(), calculator.getEnd()));
         DecimalFormat decimalFormat = new DecimalFormat("#.##");
         return decimalFormat.format(value);
-
     }
 
     public int countDayHoliday(Calculator calculator) {

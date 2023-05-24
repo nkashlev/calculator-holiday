@@ -1,7 +1,5 @@
 package ru.kashlev.calculator_holiday.service.date_range_annotation;
 
-import ru.kashlev.calculator_holiday.service.date_range_annotation.DateRange;
-
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 import java.lang.reflect.Field;
